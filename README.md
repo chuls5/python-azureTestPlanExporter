@@ -26,7 +26,7 @@ Before you start, make sure you have:
 
 ### 1️⃣ Clone or Download the Script
 
-Save the Python script as `azure_test_plan_exporter.py`
+Save the Python script as `azure_test_exporter.py`
 
 ### 2️⃣ Install Dependencies
 
@@ -203,3 +203,4 @@ This project is open source and available under the MIT License.
 **Happy Testing! 🎯✨**
 
 _Made with ❤️ for Azure DevOps users who love data-driven testing_
+
