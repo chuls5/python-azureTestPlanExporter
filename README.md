@@ -4,74 +4,24 @@
 
 This comprehensive Python tool doesn't just export test cases - it captures the complete testing story! Get hierarchical test suite structures, detailed test steps, shared steps resolution, execution history, and so much more. Perfect for deep test analysis, reporting, and quality insights! 📊✨
 
-## ✨ Features
+## 🚀 Quick Start
 
-- 🏗️ **Complete Test Plan Export**: Extracts test plans, suites, test cases, and individual test steps
-- 📊 **Hierarchical Structure**: Maintains suite hierarchy with full path navigation (no more guessing where tests belong!)
-- 🎯 **Execution History**: Includes latest test results, outcomes, and execution dates
-- 🔗 **Shared Steps Resolution**: Automatically flattens shared steps into individual test cases (magic! ✨)
-- 📋 **Rich Metadata**: Captures created dates, assigned testers, area paths, and automation status
-- 🐛 **Debug Logging**: Comprehensive logging with optional debug mode and file output
-- 💾 **CSV Export**: Clean, structured CSV output for analysis and reporting
-- 📈 **Smart Analytics**: Execution breakdowns, automation stats, and step counting
-
-## 📋 Prerequisites
-
-Before you dive in, make sure you have:
+### 📋 What You Need
 
 - 🐍 **Python 3.6+** installed on your machine
-- 🏢 **Azure DevOps organization** with test plans (obviously! 😄)
-- 🔑 **Personal Access Token (PAT)** with the right permissions
-- 📦 **Python requests library** (we'll show you how to install it)
+- 🏢 **Azure DevOps organization** with test plans
+- 🔑 **Personal Access Token (PAT)** with Test Management and Work Items read permissions
 
-### 🔐 Required Azure DevOps Permissions
+### ⚡ Installation
 
-Your Personal Access Token needs these superpowers:
-- ✅ **Test Management**: Read
-- ✅ **Work Items**: Read  
-- ✅ **Project and Team**: Read
-
-## 🚀 Installation
-
-### 1️⃣ Get the Script
-Clone or download this awesome script to your local machine! 📥
-
-### 2️⃣ Install Required Packages
 ```bash
 pip install requests
 ```
-That's it! All other dependencies are built into Python! 🎉
 
-### 3️⃣ Create Your Personal Access Token
-
-1. 🌐 Go to Azure DevOps → User Settings → Personal Access Tokens
-2. 🆕 Click "New Token"
-3. 📛 Give it a memorable name like "Test Plan Exporter"
-4. ⏰ Set appropriate expiration date
-5. 🎯 Select scopes:
-   - ✅ Test Management (Read)
-   - ✅ Work Items (Read)
-   - ✅ Project and Team (Read)
-6. 📋 Copy the generated token (you won't see it again!) 🔒
-
-## 🎯 Usage
-
-### 🚀 Basic Usage
+### 🎯 Basic Usage
 
 ```bash
 python azure_test_plan_exporter.py --organization "your-org" --project "your-project" --pat "your-pat-token" --test-plan-id "12345"
-```
-
-### 📁 With Custom Output File
-
-```bash
-python azure_test_plan_exporter.py --organization "your-org" --project "your-project" --pat "your-pat-token" --test-plan-id "12345" --output "my_awesome_test_export.csv"
-```
-
-### 🐛 With Debug Mode (For the Curious!)
-
-```bash
-python azure_test_plan_exporter.py --organization "your-org" --project "your-project" --pat "your-pat-token" --test-plan-id "12345" --debug
 ```
 
 ### 💡 Real Example
@@ -96,6 +46,29 @@ python azure_test_plan_exporter.py --organization "contoso" --project "MyAwesome
 - 🏢 **Organization**: Found in your Azure DevOps URL: `https://dev.azure.com/{organization}`
 - 📁 **Project**: The project name visible in your Azure DevOps interface
 - 🧪 **Test Plan ID**: Found in the test plan URL or the test plan details page
+
+### 📁 Usage Examples
+
+**With Custom Output File:**
+```bash
+python azure_test_plan_exporter.py --organization "your-org" --project "your-project" --pat "your-pat-token" --test-plan-id "12345" --output "my_awesome_test_export.csv"
+```
+
+**With Debug Mode (For the Curious!):**
+```bash
+python azure_test_plan_exporter.py --organization "your-org" --project "your-project" --pat "your-pat-token" --test-plan-id "12345" --debug
+```
+
+## ✨ Features
+
+- 🏗️ **Complete Test Plan Export**: Extracts test plans, suites, test cases, and individual test steps
+- 📊 **Hierarchical Structure**: Maintains suite hierarchy with full path navigation (no more guessing where tests belong!)
+- 🎯 **Execution History**: Includes latest test results, outcomes, and execution dates
+- 🔗 **Shared Steps Resolution**: Automatically flattens shared steps into individual test cases (magic! ✨)
+- 📋 **Rich Metadata**: Captures created dates, assigned testers, area paths, and automation status
+- 🐛 **Debug Logging**: Comprehensive logging with optional debug mode and file output
+- 💾 **CSV Export**: Clean, structured CSV output for analysis and reporting
+- 📈 **Smart Analytics**: Execution breakdowns, automation stats, and step counting
 
 ## 📊 Output Format Magic
 
@@ -135,6 +108,54 @@ Test Step,Smoke Tests > Login,,1,Navigate to login page,Login page displays,...
 Test Step,Smoke Tests > Login,,2,Enter valid credentials,User is authenticated,...
 Test Step,Smoke Tests > Login,,3,Click login button,User redirected to dashboard,...
 Separator,,,,,,...
+```
+
+## 🔐 Setting Up Your Personal Access Token
+
+### 3️⃣ Create Your Personal Access Token
+
+1. 🌐 Go to Azure DevOps → User Settings → Personal Access Tokens
+2. 🆕 Click "New Token"
+3. 📛 Give it a memorable name like "Test Plan Exporter"
+4. ⏰ Set appropriate expiration date
+5. 🎯 Select scopes:
+   - ✅ Test Management (Read)
+   - ✅ Work Items (Read)
+   - ✅ Project and Team (Read)
+6. 📋 Copy the generated token (you won't see it again!) 🔒
+
+### 🔐 Required Azure DevOps Permissions
+
+Your Personal Access Token needs these superpowers:
+- ✅ **Test Management**: Read
+- ✅ **Work Items**: Read  
+- ✅ **Project and Team**: Read
+
+## 🎉 Example Output Summary
+
+```
+==================================================
+🎯 EXPORT SUMMARY
+==================================================
+Total suites: 5 📊
+Total test cases: 42 🧪
+Total test steps: 156 📝
+Total rows exported: 208 📈
+
+🏆 Execution Outcome breakdown:
+  ❌ Failed: 3 (7.1%)
+  ⏸️ Not Executed: 25 (59.5%)
+  ✅ Passed: 14 (33.3%)
+
+📊 Execution Status breakdown:
+  ✅ Completed: 17 (40.5%)
+  ⏸️ Not Executed: 25 (59.5%)
+
+🤖 Automation breakdown:
+  📱 Manual: 38 (90.5%)
+  🔧 Automated: 4 (9.5%)
+
+📊 Average test steps per test case: 3.7
 ```
 
 ## 📊 Logging & Output
@@ -181,33 +202,6 @@ When you use the `--debug` flag, you get:
 - ⚡ Continues processing even if individual items fail
 - 📋 Comprehensive error reporting in debug mode
 - 💪 Built to handle real-world messiness!
-
-## 🎉 Example Output Summary
-
-```
-==================================================
-🎯 EXPORT SUMMARY
-==================================================
-Total suites: 5 📊
-Total test cases: 42 🧪
-Total test steps: 156 📝
-Total rows exported: 208 📈
-
-🏆 Execution Outcome breakdown:
-  ❌ Failed: 3 (7.1%)
-  ⏸️ Not Executed: 25 (59.5%)
-  ✅ Passed: 14 (33.3%)
-
-📊 Execution Status breakdown:
-  ✅ Completed: 17 (40.5%)
-  ⏸️ Not Executed: 25 (59.5%)
-
-🤖 Automation breakdown:
-  📱 Manual: 38 (90.5%)
-  🔧 Automated: 4 (9.5%)
-
-📊 Average test steps per test case: 3.7
-```
 
 ## 🚨 Troubleshooting
 
