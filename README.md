@@ -155,7 +155,7 @@ Since this Python script is interacting with Microsoft Azure API, install the fo
 pip install requests
 ```
 
-The requests package in Python is a popular and widely used library for making HTTP requests. It provides a simple and elegant API for interacting with web services, APIs, and web pages.
+The **requests** package in Python is a popular and widely used library for making HTTP requests. It provides a simple and elegant API for interacting with web services, APIs, and web pages.
 
 **💡 Beginner Tip**: If you get a "pip not found" error, you might need to use `python -m pip install requests` instead.
 
