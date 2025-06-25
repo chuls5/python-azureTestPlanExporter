@@ -112,7 +112,7 @@ cd python-azureTestPlanExporter
 **Option B: Manual Download**
 
 1. 🌐 **Go to the GitHub Repository Page**:
-   - Open your web browser and navigate to the [Azure DevOps Test Plan Exporter GitHub repository](https://github.com/your-username/azure-devops-test-plan-exporter).
+   - Open your web browser and navigate to the [Azure DevOps Test Plan Exporter GitHub repository](https://github.com/chuls5/python-azureTestPlanExporter).
 
 2. 💚 **Click the Green "Code" Button**:
    - On the repository page, locate the green button labeled **"Code"** and click on it.
