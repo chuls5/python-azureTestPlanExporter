@@ -321,7 +321,8 @@ class AzureTestPlanExporter:
                 step_type = step_elem.get('type', '')
                 
                 # Debugging output: Log the XML of the current step being parsed
-                print(f"Parsing step: {ET.tostring(step_elem, encoding='unicode')}")
+                if self.debug:
+                    self.logger.debug(f"Parsing step: {ET.tostring(step_elem, encoding='unicode')}")
                 
                 if step_type == 'ValidateStep':
                     # For ValidateStep, extract both action and expected result
@@ -339,7 +340,8 @@ class AzureTestPlanExporter:
                     expected = ''  # No expected result for ActionStep
                 
                 # Debugging output: Log the extracted action and expected result
-                print(f"Action: '{action}', Expected: '{expected}'")
+                if self.debug:
+                    self.logger.debug(f"Action: '{action}', Expected: '{expected}'")
                 
                 # Include steps that have either an action OR an expected result
                 if action or expected:  # Changed this condition
@@ -350,7 +352,7 @@ class AzureTestPlanExporter:
                     })
         
         except ET.ParseError as e:
-            print(f"Error parsing test steps XML: {e}")
+            self.logger.error(f"Error parsing test steps XML: {e}")
             return []
         
         return steps
