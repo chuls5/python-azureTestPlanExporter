@@ -13,6 +13,68 @@ This comprehensive Python tool doesn't just export test cases - it captures the 
 - 🔑 **Personal Access Token (PAT)** with Test Management and Work Items read permissions
 - 💻 **Git** (to download the tool)
 
+---
+
+If you already have Python installed, skip to Step:4
+
+Otherwise, please follow along to install Python globally on your machine. 
+
+---
+
+This section will guide users who do not have Python or VS Code installed.
+
+## 🛠️ Installing Python and Visual Studio Code
+
+### 📥 Step 1: Install Python
+
+1. **Download Python**:
+   - Go to the [official Python website](https://www.python.org/downloads/).
+   - Click on the "Download Python" button (the latest version is recommended).
+
+2. **Run the Installer**:
+   - Open the downloaded installer.
+   - **Important**: Check the box that says "Add Python to PATH".
+   - Click "Install Now" and follow the prompts.
+
+3. **Verify Installation**:
+   - Open Command Prompt (Windows) or Terminal (Mac/Linux).
+   - Type the following command and press Enter:
+     ```bash
+     python --version
+     ```
+   - You should see the installed Python version.
+
+### 💻 Step 2: Install Visual Studio Code
+
+1. **Download VS Code**:
+   - Go to the [Visual Studio Code website](https://code.visualstudio.com/).
+   - Click on the "Download" button for your operating system.
+
+2. **Run the Installer**:
+   - Open the downloaded installer.
+   - Follow the installation prompts.
+
+3. **Install Python Extension**:
+   - Open VS Code.
+   - Go to the Extensions view by clicking on the Extensions icon in the Activity Bar on the left side of the window.
+   - Search for "Python" and install the official Python extension by Microsoft.
+
+### 🔍 Step 3: Verify VS Code Setup
+
+1. **Open a New Terminal in VS Code**:
+   - Go to the menu and select `Terminal` > `New Terminal`.
+
+2. **Check Python Installation**:
+   - In the terminal, type:
+     ```bash
+     python --version
+     ```
+   - Ensure it shows the correct Python version.
+
+
+If you are having trouble, make sure you installed the official Microsoft Python VScode extension in Step: 2.3
+
+
 ### 📥 Step 1: Get the Tool
 
 **Option A: Download with Git (Recommended)**
@@ -35,6 +97,8 @@ cd azure-devops-test-plan-exporter
    ```
 
 ### 📦 Step 2: Install Dependencies
+
+Here we will use the Python installer "pip", also known as, "python install package" to install the required packages for the project.
 
 ```bash
 # Install the required Python package
