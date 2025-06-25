@@ -101,10 +101,10 @@ If you are having trouble, make sure you installed the official Microsoft Python
    - Go to the menu and select `Terminal` > `New Terminal`.
 ```bash
 # Clone the repository to your computer
-git clone https://github.com/your-username/azure-devops-test-plan-exporter.git
+git clone https://github.com/chuls5/python-azureTestPlanExporter.git
 
 # Go into the folder
-cd azure-devops-test-plan-exporter
+cd python-azureTestPlanExporter
 ```
 
 ---
