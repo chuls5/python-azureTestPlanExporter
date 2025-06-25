@@ -64,7 +64,7 @@ This section will guide users who do not have Python or VS Code installed.
 1. **Open a New Terminal in VS Code**:
    - Go to the menu and select `Terminal` > `New Terminal`.
 
-2. **Check Python Installation**:
+2. **Check Python Installation in VS Code terminal**:
    - In the terminal, type:
      ```bash
      python --version
@@ -74,10 +74,31 @@ This section will guide users who do not have Python or VS Code installed.
 
 If you are having trouble, make sure you installed the official Microsoft Python VScode extension in Step: 2.3
 
+---
 
-### 📥 Step 1: Get the Tool
+### 📥 Step 4: Set Up Your Projects Folder
+
+1. **Create a Folder on Your Desktop**:
+   - Right-click on your desktop and select `New` > `Folder`.
+   - Name the folder **"projects"**.
+
+2. **Open Visual Studio Code**:
+   - Launch VS Code from your applications or start menu.
+
+3. **Open the Projects Folder in VS Code**:
+   - In VS Code, go to the menu and select `File` > `Open Folder...`.
+   - Navigate to your desktop and select the **"projects"** folder you just created.
+
+4. **Verify the Folder is Open**:
+   - Ensure that the **"projects"** folder is displayed in the Explorer pane on the left side of VS Code.
+
+---
+
+### 📥 Step 5: Get the Tool
 
 **Option A: Download with Git (Recommended)**
+1. **Open a New Terminal in VS Code**:
+   - Go to the menu and select `Terminal` > `New Terminal`.
 ```bash
 # Clone the repository to your computer
 git clone https://github.com/your-username/azure-devops-test-plan-exporter.git
@@ -86,28 +107,59 @@ git clone https://github.com/your-username/azure-devops-test-plan-exporter.git
 cd azure-devops-test-plan-exporter
 ```
 
+---
+
 **Option B: Manual Download**
-1. 🌐 Go to the GitHub repository page
-2. 💚 Click the green "Code" button
-3. 📦 Click "Download ZIP"
-4. 📁 Extract the ZIP file to a folder on your computer
-5. 💻 Open Command Prompt/Terminal and navigate to that folder:
+
+1. 🌐 **Go to the GitHub Repository Page**:
+   - Open your web browser and navigate to the [Azure DevOps Test Plan Exporter GitHub repository](https://github.com/your-username/azure-devops-test-plan-exporter).
+
+2. 💚 **Click the Green "Code" Button**:
+   - On the repository page, locate the green button labeled **"Code"** and click on it.
+
+3. 📦 **Download the ZIP File**:
+   - In the dropdown menu, click on **"Download ZIP"**. This will download a compressed file containing the project files to your computer.
+
+4. 📁 **Extract the ZIP File**:
+   - Navigate to your **Downloads** folder (or wherever the ZIP file was saved).
+   - Right-click on the downloaded ZIP file and select **"Extract All..."** (or use your preferred extraction tool).
+   - Choose a destination folder (you can extract it to the **"projects"** folder you created earlier) and click **"Extract"**.
+
+5. 💻 **Open Command Prompt/Terminal**:
+   - Open Command Prompt (Windows) or Terminal (Mac/Linux).
+
+6. **Navigate to the Extracted Folder**:
+   - Use the `cd` command to change to the directory where you extracted the files. For example:
    ```bash
    cd path/to/your/extracted/folder
    ```
+   - Make sure to replace `path/to/your/extracted/folder` with the actual path to the folder where you extracted the ZIP file.
 
-### 📦 Step 2: Install Dependencies
+7. **Verify the Files**:
+   - Once in the folder, you can list the files to ensure everything is extracted correctly by running:
+   ```bash
+   ls  # For Mac/Linux
+   dir # For Windows
+   ```
 
-Here we will use the Python installer "pip", also known as, "python install package" to install the required packages for the project.
+---
+
+### 📦 Step 6: Install Dependencies
+
+Use the Python installer "pip", also known as, "python install package" to install the required packages for the project.
+
+Since this Python script is interacting with Microsoft Azure API, install the following package:
 
 ```bash
 # Install the required Python package
 pip install requests
 ```
 
+The requests package in Python is a popular and widely used library for making HTTP requests. It provides a simple and elegant API for interacting with web services, APIs, and web pages.
+
 **💡 Beginner Tip**: If you get a "pip not found" error, you might need to use `python -m pip install requests` instead.
 
-### 🔑 Step 3: Get Your Personal Access Token (PAT)
+### 🔑 Step 6: Get Your Personal Access Token (PAT)
 
 **Don't skip this step! You need this token to connect to Azure DevOps.**
 
@@ -124,16 +176,16 @@ pip install requests
 6. 🔵 Click "Create"
 7. 📋 **IMPORTANT**: Copy the token that appears (you won't see it again!)
 
-### 🎯 Step 4: Run the Tool
+### 🎯 Step 7: Run the Tool
 
 **Basic command structure:**
 ```bash
-python azure_test_plan_exporter.py --organization "your-org" --project "your-project" --pat "your-token" --test-plan-id "12345"
+python azureTestPlanExporter.py --organization "your-org" --project "your-project" --pat "your-token" --test-plan-id "12345"
 ```
 
 **Real example (replace with your actual values):**
 ```bash
-python azure_test_plan_exporter.py --organization "contoso" --project "MyAwesomeApp" --pat "abcd1234efgh5678ijkl" --test-plan-id "42"
+python azureTestPlanExporter.py --organization "contoso" --project "MyAwesomeApp" --pat "abcd1234efgh5678ijkl" --test-plan-id "42"
 ```
 
 **🔍 Where to find your information:**
@@ -141,7 +193,7 @@ python azure_test_plan_exporter.py --organization "contoso" --project "MyAwesome
 - **Project**: The project name you see in Azure DevOps
 - **Test Plan ID**: Open your test plan in Azure DevOps, look at the URL → `.../_testManagement/execute?planId=TEST-PLAN-ID...`
 
-### 🎉 Step 5: Check Your Results!
+### 🎉 Step 8: Check Your Results!
 
 After running the command, you'll see:
 - ✅ Progress messages as it works
@@ -167,7 +219,7 @@ After running the command, you'll see:
    ```
 3. **Run the command:**
    ```bash
-   python azure_test_plan_exporter.py --organization "mycompany" --project "WebApp" --pat "abc123def456ghi789" --test-plan-id "100"
+   python azureTestPlanExporter.py --organization "mycompany" --project "WebApp" --pat "abc123def456ghi789" --test-plan-id "100"
    ```
 4. **Wait for it to finish** (you'll see progress messages)
 5. **Find your CSV file** in the same folder!
@@ -205,12 +257,12 @@ After running the command, you'll see:
 
 **Save to a custom filename:**
 ```bash
-python azure_test_plan_exporter.py --organization "your-org" --project "your-project" --pat "your-pat-token" --test-plan-id "12345" --output "my_test_results.csv"
+python azureTestPlanExporter.py --organization "your-org" --project "your-project" --pat "your-pat-token" --test-plan-id "12345" --output "my_test_results.csv"
 ```
 
 **Get detailed debug information:**
 ```bash
-python azure_test_plan_exporter.py --organization "your-org" --project "your-project" --pat "your-pat-token" --test-plan-id "12345" --debug
+python azureTestPlanExporter.py --organization "your-org" --project "your-project" --pat "your-pat-token" --test-plan-id "12345" --debug
 ```
 
 ## ✨ Features
@@ -253,6 +305,10 @@ The script generates a super-detailed hierarchical CSV file! Here's what you get
 | 🤖 **Automated** | Automation status | `Yes`, `No` |
 
 ### 📁 File Structure Example
+
+The file structure is initially going to look like a lot.
+
+Those of us who know Excel will have no problem "wrapping text" from the 'Step Action' and 'Expected Result' columns.
 
 ```csv
 Type,Suite Path,Title,Step Number,Step Action,Expected Result,...
@@ -297,25 +353,25 @@ Think of it as a special password that lets this tool talk to your Azure DevOps 
 ==================================================
 🎯 EXPORT SUMMARY
 ==================================================
-Total suites: 5 📊
-Total test cases: 42 🧪
-Total test steps: 156 📝
-Total rows exported: 208 📈
+Total suites: 5 
+Total test cases: 42 
+Total test steps: 156 
+Total rows exported: 208 
 
-🏆 Execution Outcome breakdown:
-  ❌ Failed: 3 (7.1%)
-  ⏸️ Not Executed: 25 (59.5%)
-  ✅ Passed: 14 (33.3%)
+Execution Outcome breakdown:
+  Failed: 3 (7.1%)
+  Not Executed: 25 (59.5%)
+  Passed: 14 (33.3%)
 
-📊 Execution Status breakdown:
-  ✅ Completed: 17 (40.5%)
-  ⏸️ Not Executed: 25 (59.5%)
+Execution Status breakdown:
+  Completed: 17 (40.5%)
+  Not Executed: 25 (59.5%)
 
-🤖 Automation breakdown:
-  📱 Manual: 38 (90.5%)
-  🔧 Automated: 4 (9.5%)
+Automation breakdown:
+  Manual: 38 (90.5%)
+  Automated: 4 (9.5%)
 
-📊 Average test steps per test case: 3.7
+Average test steps per test case: 3.7
 ```
 
 ## 📊 Logging & Output
@@ -371,7 +427,7 @@ When you use the `--debug` flag, you get:
 - ✅ Verify your PAT is valid and not expired
 - 🔍 Ensure PAT has required permissions
 - 📝 Double-check organization and project names are spelled correctly
-- 🔄 Try regenerating your PAT if issues persist
+- 🔄 Try regenerating your PAT if issues persist, or granting "Full Access"
 
 #### 🕵️ Test Plan Not Found
 - 🆔 Verify the test plan ID exists and is correct
@@ -435,12 +491,7 @@ Having trouble? We've got your back! 💪
 - 📚 [Azure DevOps REST API Documentation](https://docs.microsoft.com/en-us/rest/api/azure/devops/)
 - 🧪 [Azure DevOps Test Management Docs](https://docs.microsoft.com/en-us/azure/devops/test/)
 - 🐛 Create an issue in this repository
-- 💬 Join our community discussions
-- 📧 Reach out to the maintainers
-
-## 🎖️ License
-
-This project is open source and available under the MIT License. Use it, modify it, share it - spread the testing love! ❤️
+- 📧 Send me a message on LinkedIn! 
 
 ---
 
